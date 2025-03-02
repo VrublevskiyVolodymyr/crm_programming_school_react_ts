@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    padding: 10px 50px;
+}
+
+.button_create {
+    height: 45px;
+    width: 90px;
+    padding: 5px;
+    margin: 10px 0;
+    background-color: var(--button-color);
+}
+
+.orders_statistic {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10px;
+    align-items: center;
+    min-width: 1000px;
+}
+
+.title_statistic {
+    font-size: 18px;
+}
+
+.statistic_statuses {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-width: 900px;
+    align-items: center;
+}
+
+.statistic_status {
+    margin: 0 20px;
+    font-size: 18px;
+}

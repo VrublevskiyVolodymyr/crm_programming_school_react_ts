@@ -1,0 +1,140 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 10px auto;
+    min-width: 1000px;
+
+}
+
+.inputs {
+    display: flex;
+    width: 800px;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    flex-wrap: wrap;
+
+}
+
+.inputRow {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.input {
+    width: 165px;
+    height: 50px;
+    padding: 8px;
+    margin: 5px;
+    background: #ededed;
+    border: 1px solid var(--button-color);
+    border-radius: 10px;
+    font-size: 14px;
+
+}
+
+.buttons {
+    width: 250px;
+    display: flex;
+    padding: 0 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.buttons_checkbox {
+    width: 200px;
+    display: flex;
+    padding: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.custom_select {
+    width: 165px;
+    height: 50px;
+    padding: 5px;
+    margin: 5px;
+    background: #ededed;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+
+.select__menu {
+    max-height: none;
+}
+
+.select__menu-list {
+    padding-right: 0;
+}
+
+.checkboxInput {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox {
+    width: 90px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkbox label {
+    font-size: 26px;
+}
+
+.checkboxInput {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.checkboxInput {
+    display: none;
+}
+
+.checkboxLabel {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border: 2px solid var(--button-color);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    transition: border-color 200ms;
+}
+
+
+.checkboxInput:checked + .checkboxLabel {
+    background-color: var(--button-color);
+    border-color: var(--button-color);
+}
+
+
+.checkboxInput:checked + .checkboxLabel::before {
+    content: "✔";
+    font-size: 24px;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+

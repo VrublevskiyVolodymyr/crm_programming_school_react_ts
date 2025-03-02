@@ -1,0 +1,51 @@
+.loginForm {
+    width: 300px;
+    height: 350px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.formGroup {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    height: 60px;
+    padding: 10px;
+    border: 0.5px solid #ccc;
+    border-radius: 10px;
+    background-color: #ededed;
+}
+
+.loginButton{
+    width: 100%;
+    height: 60px;
+    margin-top: 25px;
+    padding: 10px;
+    background-color: var(--button-color);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.loginButton:hover {
+    background-color: var(--hover-color);
+}
+.error{
+    color:red;
+    margin-bottom: 0;
+    text-align: center;
+}
+

@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+}
+.container{
+    width: 100%;
+}
+
+.header {
+    min-height: 50px;
+    min-width: 1000px;
+    width: 100%;
+    background-color: var(--header-background-color);
+    font-size: 25px;
+    color: var(--button-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.buttons{
+    display: flex;
+    align-items: center;
+    margin: 0.938vw;
+}
+
+.logout {
+    background-color: var(--button-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0 10px ;
+}
+
+.logout:hover {
+    background-color: var(--hover-color);
+}
+.logo{
+    cursor: pointer;
+    margin-left: 20px;
+}
+.logo:hover {
+    color: var(--hover-color);
+}
+
+
+.faFilter{
+    background-color: var(--button-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0 10px ;
+}
+.adminPanel{
+    background-color: var(--button-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0 10px ;
+}
+
+.faFilter:hover{
+    cursor: pointer;
+    background-color: var(--hover-color);
+}
+.adminPanel:hover{
+    cursor: pointer;
+    background-color: var(--hover-color);
+
+}
