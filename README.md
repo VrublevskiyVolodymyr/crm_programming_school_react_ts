@@ -6,9 +6,7 @@ This project is the frontend of a CRM system, built with React and TypeScript. I
 
 - User-friendly interface for managing student applications and inquiries
 - Real-time data communication with the backend API
-- Built with React and TypeScript for maintainability and scalability- Search for movies and TV shows
-- View details of a specific movie or TV show
-- Responsive design for mobile and desktop
+- Built with React and TypeScript for maintainability and scalability
 
 ## Technologies Used
 
@@ -49,4 +47,4 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 
 ## License
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
