@@ -17,7 +17,7 @@ interface IProps {
 }
 
 const Order: FC<IProps> = ({orders, onEditOrder}) => {
-    const [expandedRows, setExpandedRows] = useState<number[]>([]);
+    const [expandedRow, setExpandedRow] = useState<number | null>(null);
     const {sortedColumn, sortDirection} = useAppSelector((state) => state.orderReducer);
     const {me} = useAppSelector(state => state.authReducer)
     const navigate = useNavigate();
@@ -54,10 +54,7 @@ const Order: FC<IProps> = ({orders, onEditOrder}) => {
         } else {
             queryData.order = order;
         }
-
-        if (!queryData.page) {
             queryData.page = '1';
-        }
         const queryString = qs.stringify(queryData, { encode: false });
         window.history.pushState({}, '', `?${queryString}`);
 
@@ -72,11 +69,7 @@ const Order: FC<IProps> = ({orders, onEditOrder}) => {
     }, [isQueryExpression, navigate]);
 
     const toggleRow = (rowId: number) => {
-        if (expandedRows.includes(rowId)) {
-            setExpandedRows(expandedRows.filter((id) => id !== rowId));
-        } else {
-            setExpandedRows([...expandedRows, rowId]);
-        }
+        setExpandedRow(expandedRow === rowId ? null : rowId);
     };
 
     const openEditModal = (order: IOrder | null, rowIndex: number) => {
@@ -140,7 +133,7 @@ const Order: FC<IProps> = ({orders, onEditOrder}) => {
                             <td>{formatDate(order.created_at) || 'null'}</td>
                             <td>{order.manager ? (order.manager.name || 'null') : 'null'}</td>
                         </tr>
-                        {expandedRows.includes(order.id) && (
+                        {expandedRow === order.id && (
                             <tr>
                                 <td colSpan={14} className={css.expandedRow}>
                                     <div className={css.expandedRows}>

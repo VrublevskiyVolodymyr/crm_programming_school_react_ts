@@ -7,6 +7,8 @@ import {authService} from "../../services";
 import {authActions, orderActions} from "../../redux";
 import {Themes} from "../Themes/Themes";
 import css from './header.module.css'
+import logo from "../../images/crm.jpg";
+
 
 interface IProps {
 }
@@ -26,6 +28,7 @@ const Header: FC<IProps> = () => {
         dispatch(orderActions.setQueryFromFilter(null));
         dispatch(orderActions.setFilterVisible(false));
         dispatch(authActions.logout())
+        localStorage.removeItem("user");
         navigate('/login')
     };
 
@@ -60,7 +63,10 @@ const Header: FC<IProps> = () => {
                 me && !query.get('expSession') ?
                     <div className={css.header}>
 
-                        <div className={css.logo} onClick={handleLogo}>Logo</div>
+                        <div className={css.logo} onClick={handleLogo}>
+                            <img src={logo} alt="Logo" className={css.logoImage}/>
+                        </div>
+
 
                         <div className={css.buttons}>
                             <span>{me.name}</span>

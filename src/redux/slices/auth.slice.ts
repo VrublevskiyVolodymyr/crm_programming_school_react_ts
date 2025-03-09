@@ -61,12 +61,17 @@ const slice = createSlice({
         logout: (state) => {
             state.me = null;
             state.error = null;
+            localStorage.removeItem("user");
+        },
+        setUser: (state, action) => {
+            state.me = action.payload;
         },
     },
     extraReducers: builder =>
         builder
             .addCase(login.fulfilled, (state, action) => {
                 state.me = action.payload
+                localStorage.setItem("user", JSON.stringify(action.payload));
             })
             .addCase(me.fulfilled, (state, action) => {
                 state.me = action.payload
@@ -90,7 +95,7 @@ const authActions = {
     ...actions,
     login,
     me,
-    activateManager
+    activateManager,
 }
 
 export {

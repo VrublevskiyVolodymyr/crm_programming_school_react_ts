@@ -26,6 +26,14 @@ const Managers: FC<IProps> = () => {
 
     const [query] = useSearchParams({page: '1'});
     const currentPage = query.get('page') ? parseInt(query.get('page') as string, 10) : 1;
+    const newSearchParams = new URLSearchParams(window.location.search);
+    const isQueryExpression = newSearchParams.get('expSession') === 'true';
+
+    useEffect(() => {
+        if (isQueryExpression) {
+            navigate('/login?expSession=true', {replace: true});
+        }
+    }, [isQueryExpression, navigate]);
 
     useEffect(() => {
         dispatch(adminActions.getAllManagers({page: currentPage, limit: 5}));
