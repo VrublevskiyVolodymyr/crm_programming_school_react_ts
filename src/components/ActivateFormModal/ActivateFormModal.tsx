@@ -64,7 +64,7 @@ const ActivateFormModal: FC<IProps> = () => {
                 <form onSubmit={handleSubmit(activate)} className={css.form}>
                     <div className={css.formGroup}>
                         <label>Password</label>
-                        <input className={css.form_control} type="text"
+                        <input className={css.form_control} type="password"
                                placeholder={'Password'} {...register('password', {required: true})}
                                onChange={handleInputChange}/>
                         {showError && errors.password && <span className={css.error}>{errors.password.message}</span>}
@@ -72,7 +72,7 @@ const ActivateFormModal: FC<IProps> = () => {
 
                     <div className={css.formGroup}>
                         <label>Confirm Password</label>
-                        <input className={css.form_control} type="text"
+                        <input className={css.form_control} type="password"
                                placeholder={'Confirm Password'} {...register('confirm_password', {required: true})}
                                onChange={handleInputChange}/>
                         {showError && errors.confirm_password &&

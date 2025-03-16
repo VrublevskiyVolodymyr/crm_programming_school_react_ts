@@ -103,6 +103,18 @@ const EditModal: FC<IProps> = ({onClose, onEditOrder, order}) => {
 
     ];
 
+    const defaultCourseOptions = [
+        {value: '', label: 'all courses'},
+        {value: null, label: 'all courses'},
+        {value: 'FS', label: 'FS'},
+        {value: 'QACX', label: 'QACX'},
+        {value: 'JCX', label: 'JCX'},
+        {value: 'JSCX', label: 'JSCX'},
+        {value: 'FE', label: 'FE'},
+        {value: 'PCX', label: 'PCX'}
+
+    ];
+
     const statusOptions = [
         {value: '', label: 'all statuses'},
         {value: 'New', label: 'New'},
@@ -113,6 +125,16 @@ const EditModal: FC<IProps> = ({onClose, onEditOrder, order}) => {
 
     ];
 
+    const defaultStatusOptions = [
+        {value: '', label: 'all statuses'},
+        {value: null, label: 'all statuses'},
+        {value: 'New', label: 'New'},
+        {value: 'In work', label: 'In work'},
+        {value: 'Agree', label: 'Agree'},
+        {value: 'Disagree', label: 'Disagree'},
+        {value: 'Dubbing', label: 'Dubbing'}
+
+    ];
 
     const courseTypeOptions = [
         {value: '', label: 'all courseTypes'},
@@ -123,8 +145,25 @@ const EditModal: FC<IProps> = ({onClose, onEditOrder, order}) => {
         {value: 'vip', label: 'vip'}
     ];
 
+    const defaultCourseTypeOptions = [
+        {value: '', label: 'all courseTypes'},
+        {value: null, label: 'all courseTypes'},
+        {value: 'pro', label: 'pro'},
+        {value: 'minimal', label: 'minimal'},
+        {value: 'premium', label: 'premium'},
+        {value: 'incubator', label: 'incubator'},
+        {value: 'vip', label: 'vip'}
+    ];
+
     const courseFormatOptions = [
         {value: '', label: 'all courseFormats'},
+        {value: 'static', label: 'static'},
+        {value: 'online', label: 'online'}
+    ];
+
+    const defaultCourseFormatOptions = [
+        {value: '', label: 'all courseFormats'},
+        {value: null, label: 'all courseFormats'},
         {value: 'static', label: 'static'},
         {value: 'online', label: 'online'}
     ];
@@ -147,18 +186,18 @@ const EditModal: FC<IProps> = ({onClose, onEditOrder, order}) => {
     };
 
     const onSubmit: SubmitHandler<FormValues> = async (data: { [key: string]: any }) => {
-        const filteredData = Object.keys(data).reduce((acc, key) => {
-            if (data[key] !== null && data[key] !== "") {
-                acc[key] = data[key];
-            }
-            return acc;
-        }, {} as { [key: string]: any });
+            const filteredData = Object.keys(data).reduce((acc, key) => {
+                if (data[key] !== null && data[key] !== "") {
+                    acc[key] = data[key];
+                }
+                return acc;
+            }, {} as { [key: string]: any });
 
-        onEditOrder(order.id, filteredData);
+            onEditOrder(order.id, filteredData);
 
-    };
+        };
 
-    useEffect(() => {
+       useEffect(() => {
         if (isUpdate) {
             onClose()
         }
@@ -257,7 +296,7 @@ const EditModal: FC<IProps> = ({onClose, onEditOrder, order}) => {
                                         <Select
                                             className={css.custom_select}
                                             classNamePrefix="select"
-                                            defaultValue={statusOptions.find((option) => option.value === order?.status) || { value: '', label: 'all statuses' }}
+                                            defaultValue={defaultStatusOptions.find((option) => option.value === order?.status)}
                                             options={statusOptions}
                                             styles={customStyles}
                                             maxMenuHeight={250}
@@ -339,7 +378,7 @@ const EditModal: FC<IProps> = ({onClose, onEditOrder, order}) => {
                                         <Select
                                             className={css.custom_select}
                                             classNamePrefix="select"
-                                            defaultValue={courseOptions.find((option) => option.value === order?.course) || { value: '', label: 'all courses' }}
+                                            defaultValue={defaultCourseOptions.find((option) => option.value === order?.course)}
                                             options={courseOptions}
                                             styles={customStyles}
                                             maxMenuHeight={250}
@@ -374,7 +413,7 @@ const EditModal: FC<IProps> = ({onClose, onEditOrder, order}) => {
                                         <Select
                                             className={css.custom_select}
                                             classNamePrefix="select"
-                                            defaultValue={courseFormatOptions.find((option) => option.value === order?.course_format) || { value: '', label: 'all courseFormats' }}
+                                            defaultValue={defaultCourseFormatOptions.find((option) => option.value === order?.course_format)}
                                             options={courseFormatOptions}
                                             styles={customStyles}
                                             maxMenuHeight={250}
@@ -409,7 +448,7 @@ const EditModal: FC<IProps> = ({onClose, onEditOrder, order}) => {
                                         <Select
                                             className={css.custom_select}
                                             classNamePrefix="select"
-                                            defaultValue={courseTypeOptions.find((option) => option.value === order?.course_type) || { value: '', label: 'all courseTypes' }}
+                                            defaultValue={defaultCourseTypeOptions.find((option) => option.value === order?.course_type)}
                                             options={courseTypeOptions}
                                             styles={customStyles}
                                             maxMenuHeight={250}
